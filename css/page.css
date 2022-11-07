@@ -1,0 +1,20 @@
+
+/* 최상단 메인 */
+.homeArea{background: url('../images/home-bg.png') no-repeat center; position: relative;}
+.homeArea > *{position: absolute; left: 50%; top: 50%; transform: translate(-50% , -50%);}
+.homeArea div{
+    width: 415px; height: 60%; 
+    /* width: 100%; height: 100%;  */
+    background: url('../images/home-img.png') no-repeat center left -1565px;}
+.homeArea p{font-weight: 700; text-align: center;}
+.homeArea p:nth-of-type(1){font-size: 110px;}
+.homeArea p:nth-of-type(2){font-size: 56px; line-height: 76px; opacity: 0;}
+
+/* 멤버쉽 */
+.membershipArea{max-width: 2096px; margin: 0 auto; flex-direction: column; background: url('../images/membership-bg.png') no-repeat center bottom; text-align: center; font-weight: 700;}
+.membershipArea li:not(:last-child){margin-bottom: 70px;}
+.membershipArea li a{font-size: 86px; /* margin-bottom: 30px; */ position: relative; padding: 0 20px;}
+.membershipArea li a span{position: relative; z-index: 1;}
+.membershipArea li p{font-size: 20px; line-height: 27px; height: 0; overflow: hidden;}
+.membershipArea li.active a::before{content: ''; position: absolute; left: -60px; width: 30px; height: 100%; background: url('../images/icon-star.png') no-repeat center;}
+.membershipArea li.active a::after{content: ''; position: absolute; left: 0; top: 50%; width: 100%; height: 9px; transform: translateY(-50%); background-color: #ff0000;}
