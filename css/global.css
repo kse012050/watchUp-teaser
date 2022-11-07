@@ -20,5 +20,5 @@ mark{color: #ff0000;}
 .teaserPage header .bottomArea div > *:not(:last-child){margin-bottom: 50px;}
 .teaserPage header .bottomArea button{padding-right: 20px; background: url('../images/icon-top.png') no-repeat right center;}
 
-.teaserPage .fullPage{background-color: black; color: white;}
+.teaserPage .fullPage{background-color: black; color: white; text-align: center; font-weight: 700;}
 .teaserPage .fullPage > *{height: 100vh; display: flex; justify-content: center; align-items: center;}
