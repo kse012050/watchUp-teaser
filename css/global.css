@@ -1,0 +1,20 @@
+mark{color: #ff0000;}
+
+.teaserPage{}
+
+.teaserPage header{position: fixed; inset: 30px 40px 40px; display: flex; flex-direction: column; justify-content: space-between;}
+.teaserPage header > div{display: flex; justify-content: space-between;}
+.teaserPage header .topArea{align-items: center;}
+.teaserPage header .topArea h1{width: 128px;}
+.teaserPage header .topArea h1 img{width: 100%;}
+.teaserPage header .topArea ul{display: flex;}
+.teaserPage header .topArea ul li{width: 25px;}
+.teaserPage header .topArea ul li:not(:last-child){margin-right: 20px;}
+.teaserPage header .topArea ul li a img{width: 100%;}
+.teaserPage header .bottomArea{align-items: flex-end; font-size: 18px; font-weight: 700; color: white; }
+.teaserPage header .bottomArea div{background: url('../images/icon-star.png') no-repeat center / 11.5px;}
+.teaserPage header .bottomArea div > *{display: block;}
+.teaserPage header .bottomArea div > *:not(:last-child){margin-bottom: 50px;}
+.teaserPage header .bottomArea button{padding-right: 20px; background: url('../images/icon-top.png') no-repeat right center;}
+
+.teaserPage .fullPage{background-color: black; height: 100vh;}
