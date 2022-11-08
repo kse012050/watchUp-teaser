@@ -82,3 +82,5 @@ button{background-color: transparent; border: none; cursor: pointer; padding: 0;
 
 mark{background-color: transparent; color: inherit;}
 
+label{cursor: pointer;}
+

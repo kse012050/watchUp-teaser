@@ -3,6 +3,18 @@ body{height: 5000px;}
 /* 포인트 컬러 */
 mark{color: #ff0000;}
 
+/* 버튼 공통 */
+.btnCase{width: 320px; line-height: 75px; font-size: 24px; color: black; font-weight: 700; text-align: center; background-color: rgba(255, 255, 255, 0.8); border-radius: 200px;}
+
+/* 팝업 공통 */
+[class ^='popup']{display: none; flex-direction: column; position: fixed; left: 50%; top: 50%; transform: translate(-50% , -50%); width: 320px; padding: 0 20px; background-color: black; box-sizing: border-box; border: 1px solid #ff0000;}
+[class ^='popup'] button{width: 100%; height: 60px; font-size: 18px; font-weight: 700; border-top: 1px solid rgba(255, 255, 255, 0.14);}
+[data-popupName^="alert"] p{font-size: 16px; text-align: center; line-height: 62px; padding: 32px 0 35px;}
+[data-popupName^="agree"] div{padding: 20px 0;}
+[data-popupName^="agree"] div strong{display: block; font-size: 18px; font-weight: 700; margin-bottom: 20px;}
+[data-popupName^="agree"] div > *:not(strong){font-size: 16px; color: rgba(255, 255, 255, 0.8); line-height: 24px;}
+[data-popupName^="agree"] div ul li::before{content: '-';}
+
 /* 해더 */
 .teaserPage header{position: fixed; inset: 30px 40px 40px; z-index: 10; display: flex; flex-direction: column; justify-content: space-between; pointer-events: none;}
 .teaserPage header > div{display: flex; justify-content: space-between;}
@@ -20,5 +32,24 @@ mark{color: #ff0000;}
 .teaserPage header .bottomArea div > *:not(:last-child){margin-bottom: 50px;}
 .teaserPage header .bottomArea button{padding-right: 20px; background: url('../images/icon-top.png') no-repeat right center;}
 
+/* 화면 고정 텍스트 */
+.teaserPage .fixedText{position: fixed; left: calc(50% + 200px); top: calc(50% + 10px); width: 160px; height: 160px; z-index: 10; color: red; display: flex; justify-content: center; align-items: center; background: url('../images/icon-right.png') no-repeat center;}
+.teaserPage .fixedText mark{font-size: 26px; font-weight: 800; position: relative; animation: rotateAni 7.5s linear infinite; animation-play-state: paused;}
+.teaserPage .fixedText mark span{position: absolute; left: 0; top: 0; transform-origin: left top;}
+.teaserPage .fixedText:hover mark{animation-play-state: running;}
+@keyframes rotateAni {
+    0%{
+        transform: rotate(360deg);
+    }
+    100%{
+        transform: rotate(0deg);
+    }
+}
+
+/* fullPage 공통 */
 .teaserPage .fullPage{background-color: black; color: white; text-align: center; font-weight: 700;}
-.teaserPage .fullPage > *{height: 100vh; display: flex; justify-content: center; align-items: center;}
+.teaserPage .fullPage > *{height: 100vh; display: flex; justify-content: center; align-items: center; flex-direction: column;}
+
+
+
+

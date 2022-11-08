@@ -10,15 +10,71 @@
 .homeArea p:nth-of-type(2){font-size: 56px; line-height: 76px; opacity: 0;}
 
 /* 멤버쉽 */
-.membershipArea{max-width: 2096px; margin: 0 auto; flex-direction: column; background: url('../images/membership-bg.png') no-repeat center bottom;}
+.membershipArea{max-width: 2096px; margin: 0 auto; background: url('../images/membership-bg.png') no-repeat center bottom;}
 .membershipArea li:not(:last-child){margin-bottom: 70px;}
 .membershipArea li a{font-size: 86px; /* margin-bottom: 30px; */ position: relative; padding: 0 20px;}
 .membershipArea li a span{position: relative; z-index: 1;}
-.membershipArea li p{font-size: 20px; line-height: 27px; height: 0; overflow: hidden;}
-.membershipArea li.active a::before{content: ''; position: absolute; left: -60px; width: 30px; height: 100%; background: url('../images/icon-star.png') no-repeat center;}
-.membershipArea li.active a::after{content: ''; position: absolute; left: 0; top: 50%; width: 100%; height: 9px; transform: translateY(-50%); background-color: #ff0000;}
+.membershipArea li p{display: none;  font-size: 20px; line-height: 27px; margin-top: 30px;}
+.membershipArea li a::before{content: ''; position: absolute; left: -60px; width: 30px; height: 100%; background: url('../images/icon-star.png') no-repeat center; opacity: 0; transition: opacity 0.7s; animation: rotateAni 3s linear infinite; animation-play-state: paused;}
+.membershipArea li a::after{content: ''; position: absolute; left: 0; top: 50%; width: 0; height: 9px; transform: translateY(-50%); background-color: #ff0000; transition: width 0.5s;}
+.membershipArea li.active p{display: block;}
+.membershipArea li.active a::after{width: 100%; transition-delay: 0.3s;}
+.membershipArea li.active a::before{opacity: 1; transition-delay: 0.3s;}
+.membershipArea li.active:hover a::before{animation-play-state: running;}
 
 /* 이벤트 */
-.eventArea{flex-direction: column; background: url('../images/event-bg.png') no-repeat center / cover;}
+.eventArea{ background: url('../images/event-bg.png') no-repeat center / cover;}
 .eventArea h2{font-size: 100px; font-weight: 800; margin-bottom: 30px;}
 .eventArea p{font-size: 20px; line-height: 30px; max-width: 480px;}
+
+/* 쇼룸 */
+.showArea h2{font-size: 46px; font-weight: 800; margin-bottom: 40px;}
+.showArea .showSwiper{width: 100%; overflow: hidden; position: relative; margin-bottom: 30px;}
+.showArea .showSwiper .swiper{width: 100%; max-width: 1230px; margin: 0 auto; overflow: visible;}
+.showArea .showSwiper .swiper img{width: 100%; max-width: 965px;}
+.showArea .showSwiper :is(.swiper-button-next , .swiper-button-prev){width: 48px; height: 43px; background-repeat: no-repeat; background-position: center; background-size: cover;}
+.showArea .showSwiper .swiper-button-prev{background-image: url('../images/slider-prev.png');}
+.showArea .showSwiper .swiper-button-next{background-image: url('../images/slider-next.png');}
+.showArea .showSwiper :is(.swiper-button-next , .swiper-button-prev):after{content: '';}
+.showArea .swiper-pagination{position: static; font-size: 20px; font-weight: 800; color: rgba(255, 255, 255, 0.5);}
+.showArea .swiper-pagination .swiper-pagination-current{color: #fff;}
+
+/* 위치 */
+.locationArea h2{font-size: 50px; font-weight: 800; margin-bottom: 40px;}
+.locationArea img{width: 100%; max-width: 960px; margin-bottom: 30px; position: relative; z-index: 10;}
+.locationArea p{font-size: 18px; font-weight: 500; color: rgba(255, 255, 255, 0.5); display: flex;}
+.locationArea p::before{content: ''; display: inline-block; width: 14px; background: url('../images/icon-location.png') no-repeat center / cover; margin-right: 10px;}
+
+/* 사전 예약 */
+.reservationArea .firstContent{
+    background-image: url('../images/Logo-Big.png') , url('../images/reservation-bg.png') ;
+    background-repeat: no-repeat , no-repeat;
+    background-position: top 45px center , center;
+}
+.reservationArea .firstContent{height: 485px; display: flex; flex-direction: column; align-items: center; width: 100%;}
+.reservationArea .firstContent h2{font-size: 40px; margin-bottom: 15px;}
+.reservationArea .firstContent h2 b{font-weight: 800;}
+.reservationArea .firstContent p{font-size: 18px; font-weight: 700; color: rgba(255, 255, 255, 0.6); margin-bottom: 300px;}
+.reservationArea .firstContent button{margin-bottom: 30px;}
+.reservationArea .firstContent small{font-size: 16px;}
+.reservationArea .secondContent{position: fixed; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.75); display: none; justify-content: center; align-items: center; z-index: 100;}
+.reservationArea .secondContent > fieldset{text-align: center;}
+.reservationArea .secondContent > fieldset h3{font-size: 48px; font-weight: 700; margin-bottom: 30px;}
+.reservationArea .secondContent > fieldset input[type="text"]{width: 555px; height: 90px; font-size: 24px; font-weight: 700; color: white; text-align: center; background-color: transparent; border: none; border-bottom: 3px solid white; margin-bottom: 70px;}
+.reservationArea .secondContent > fieldset input[type="text"]::placeholder{color: rgba(255, 255, 255, 0.3);}
+.reservationArea .secondContent > fieldset > ul{display: flex; justify-content: center; margin-bottom: 100px;}
+.reservationArea .secondContent > fieldset > ul li:not(:last-child){margin-right: 20px;}
+.reservationArea .secondContent > fieldset > ul li input{display: none;}
+.reservationArea .secondContent > fieldset > ul li label{display: flex; justify-content: center; align-items: center; width: 210px; height: 50px; font-size: 18px; color: black; font-weight: 700; padding: 0 27px 0 46px; box-sizing: border-box; background-color: rgba(255, 255, 255, 0.8); border-radius: 1000px;}
+.reservationArea .secondContent > fieldset > ul li label::before{content: ''; width: 30px; height: 30px; background-repeat: no-repeat; background-position: center; background-size: cover; margin-right: 5px;}
+.reservationArea .secondContent > fieldset > ul li input:checked + label{background-color: dodgerblue;}
+.reservationArea .secondContent > fieldset > ul li:nth-child(1) label::before{background-image: url('../images/icon-appstore.png');}
+.reservationArea .secondContent > fieldset > ul li:nth-child(2) label::before{background-image: url('../images/icon-playsstore.png');}
+.reservationArea .secondContent > fieldset .chkArea{display: inline-flex; flex-direction: column; text-align: left; margin-bottom: 60px;}
+.reservationArea .secondContent > fieldset .chkArea input{display: none;}
+.reservationArea .secondContent > fieldset .chkArea label{font-size: 18px; color: rgba(255, 255, 255, 0.8); padding-left: 35px; background-image: url('../images/icon-chk.png'); background-repeat: no-repeat; background-position: left center; background-size: 20px;}
+.reservationArea .secondContent > fieldset .chkArea input:checked + label{background-image: url('../images/icon-chk-checked.png');}
+.reservationArea .secondContent > fieldset .chkArea label span{text-decoration: underline; text-decoration-thickness: 3px;}
+.reservationArea .secondContent > fieldset .chkArea label:not(:last-child){margin-bottom: 20px;}
+.reservationArea .secondContent > fieldset > input[type="submit"]{display: block; margin: 0 auto;}
+.reservationArea .secondContent > button{position: absolute;  right: 40px; top: 40px; text-indent: -9999px; width: 40px; height: 40px; background: url('../images/icon-close.png') no-repeat center / cover;}
