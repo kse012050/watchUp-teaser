@@ -1,4 +1,4 @@
-body{height: 5000px;}
+body.overflowHidden{overflow: hidden;}
 
 /* 포인트 컬러 */
 mark{color: #ff0000;}
@@ -14,6 +14,8 @@ mark{color: #ff0000;}
 [data-popupName^="agree"] div strong{display: block; font-size: 18px; font-weight: 700; margin-bottom: 20px;}
 [data-popupName^="agree"] div > *:not(strong){font-size: 16px; color: rgba(255, 255, 255, 0.8); line-height: 24px;}
 [data-popupName^="agree"] div ul li::before{content: '-';}
+
+.teaserPage{height: 100vh; overflow: hidden;}
 
 /* 해더 */
 .teaserPage header{position: fixed; inset: 30px 40px 40px; z-index: 10; display: flex; flex-direction: column; justify-content: space-between; pointer-events: none;}
@@ -47,8 +49,8 @@ mark{color: #ff0000;}
 }
 
 /* fullPage 공통 */
-.teaserPage .fullPage{background-color: black; color: white; text-align: center; font-weight: 700;}
-.teaserPage .fullPage > *{height: 100vh; display: flex; justify-content: center; align-items: center; flex-direction: column;}
+.teaserPage .fullPage{position: relative; left: 0; top: 0; width: 100%;  background-color: black; color: white; text-align: center; font-weight: 700;}
+.teaserPage .fullPage > *{width: 100%; height: 100vh; display: flex; justify-content: center; align-items: center; flex-direction: column;}
 
 
 

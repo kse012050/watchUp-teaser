@@ -1,4 +1,6 @@
 $(document).ready(function(){
+    fullPage();
+
     // 화면 고정 텍스트
     fixedText()
 
@@ -16,6 +18,111 @@ $(document).ready(function(){
     })
 });
 
+// 풀페이지
+function fullPage(){
+    let delta;
+    let fullIdx = 0;
+    let moveTop = 0;
+    let fullSelector = $('.fullPage > *');
+    // 총 페이저 수
+    $('.teaserPage header .bottomArea div span').html('0' + fullSelector.length)
+
+    // 
+    if (/Mobi|Android/i.test(navigator.userAgent)) {
+        // 모바일인 경우
+        $('.fullPage').children().height($(window).height())
+    }
+
+    // 마우스 휠 이벤트
+    fullSelector.on('mousewheel DOMMouseScroll',function(e){
+        // mousewheel 크롬 엣지 , DOMMouseScroll 파이어폭스
+        if($('.fullPage').is(':animated')) return;
+        
+        // 크롬 , 엣지
+        delta = e.originalEvent.wheelDelta;
+        // 파이어폭스
+        if(delta === undefined){
+            delta = -(e.originalEvent.detail);
+        }
+
+        fullPage($(this),e , delta)
+    });
+    // 마우스 휠 이벤트 fin
+
+
+    // 터치 이벤트
+    let touchValue = {
+        startX : 0,
+        startY : 0,
+        endX : 0,
+        endY : 0
+    }
+
+    fullSelector.on('touchstart',function(e){
+        touchValue.startX = e.changedTouches[0].clientX;
+        touchValue.startY = e.changedTouches[0].clientY;
+    });
+    
+    fullSelector.on('touchend',function(e){
+        if($('.fullPage').is(':animated')) return;
+        touchValue.endX = e.changedTouches[0].clientX;
+        touchValue.endY = e.changedTouches[0].clientY;
+        if(Math.abs(touchValue.startY - touchValue.endY) > Math.abs(touchValue.startX - touchValue.endX)){
+            if(touchValue.startY - touchValue.endY < 0){
+                delta = 120;
+            }else{
+                delta = -120;
+            }
+        }else{
+            return;
+        }
+        
+        fullPage($(this),e , delta)
+    })
+    // 터치 이벤트 fin
+
+    // 브라우저 사이즈 쭐였을 때
+    $(window).resize(function(){
+        $('.fullPage').stop().css('top' ,$(window).height() * -fullIdx)
+        moveTop = parseInt($('.fullPage').css('top'));
+    }) // 브라우저 사이즈 쭐였을 때
+    
+    // 풀페이지 이벤트
+    function fullPage(target,e , delta){
+        if(delta > 0){
+            // 위로
+            if(target.prev().position()){
+                fullIdx = target.index() - 1;
+                if(fullIdx == 0){
+                    $('body').removeClass('overflowHidden');
+                }
+                moveTop = -(target.prev().position().top)
+            }
+        }else{
+            if(target.next().position()){
+                $('body').addClass('overflowHidden');
+                moveTop = -(target.next().position().top)
+                fullIdx = target.index() + 1;
+            }
+        }
+
+        if((target.prev().position()) || (target.next().position())){
+            $('header .bottomArea mark').html('0'+ (fullIdx + 1))
+            $('.fullPage').stop().animate({top : moveTop})
+        }
+    }   // 풀페이지 이벤트
+
+    // 상단 이동 버튼
+    $('.topMove').click(function(){
+        fullIdx = 0;
+        $('header .bottomArea mark').html('0'+ (fullIdx + 1))
+        $('.fullPage').stop().animate({top : 0})
+    })
+
+}   // 풀페이지
+
+
+// 화면 고정 텍스트
 function fixedText(){
     let textLength = $('.fixedText mark').text().length;
     let test = $('.fixedText mark').text().replace(/\S/g,"<span>$&</span>");
@@ -23,7 +130,8 @@ function fixedText(){
     $('.fixedText mark span').each(function(i){
         $(this).css('transform','rotate('+i * (360 / textLength)+'deg) translateY(60px)')
     })
-}
+}   // 화면 고정 텍스트
+
 
 // 쇼룸
 function showSlider(){
@@ -39,6 +147,7 @@ function showSlider(){
         },
     });
 }  // 쇼룸 fin
+
 
 function reservationEvent(){
     // 팝업

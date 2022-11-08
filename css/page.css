@@ -64,16 +64,16 @@
 .reservationArea .secondContent > fieldset input[type="text"]::placeholder{color: rgba(255, 255, 255, 0.3);}
 .reservationArea .secondContent > fieldset > ul{display: flex; justify-content: center; margin-bottom: 100px;}
 .reservationArea .secondContent > fieldset > ul li:not(:last-child){margin-right: 20px;}
-.reservationArea .secondContent > fieldset > ul li input{display: none;}
-.reservationArea .secondContent > fieldset > ul li label{display: flex; justify-content: center; align-items: center; width: 210px; height: 50px; font-size: 18px; color: black; font-weight: 700; padding: 0 27px 0 46px; box-sizing: border-box; background-color: rgba(255, 255, 255, 0.8); border-radius: 1000px;}
+.reservationArea .secondContent > fieldset > ul li input[type="radio"]{display: none;}
+.reservationArea .secondContent > fieldset > ul li label{display: flex; justify-content: center; align-items: center; width: 210px; height: 50px; font-size: 18px; color: black; font-weight: 700; padding: 0 27px 0 46px; box-sizing: border-box; background-color: rgba(255, 255, 255, 0.8); background-image: url('../images/icon-radio.png'); background-repeat: no-repeat; background-position: left 16px center; background-size: 20px; border-radius: 1000px;}
 .reservationArea .secondContent > fieldset > ul li label::before{content: ''; width: 30px; height: 30px; background-repeat: no-repeat; background-position: center; background-size: cover; margin-right: 5px;}
-.reservationArea .secondContent > fieldset > ul li input:checked + label{background-color: dodgerblue;}
+.reservationArea .secondContent > fieldset > ul li input[type="radio"]:checked + label{background-image: url('../images/icon-radio-check.png');}
 .reservationArea .secondContent > fieldset > ul li:nth-child(1) label::before{background-image: url('../images/icon-appstore.png');}
 .reservationArea .secondContent > fieldset > ul li:nth-child(2) label::before{background-image: url('../images/icon-playsstore.png');}
 .reservationArea .secondContent > fieldset .chkArea{display: inline-flex; flex-direction: column; text-align: left; margin-bottom: 60px;}
-.reservationArea .secondContent > fieldset .chkArea input{display: none;}
+.reservationArea .secondContent > fieldset .chkArea input[type="checkbox"]{display: none;}
 .reservationArea .secondContent > fieldset .chkArea label{font-size: 18px; color: rgba(255, 255, 255, 0.8); padding-left: 35px; background-image: url('../images/icon-chk.png'); background-repeat: no-repeat; background-position: left center; background-size: 20px;}
-.reservationArea .secondContent > fieldset .chkArea input:checked + label{background-image: url('../images/icon-chk-checked.png');}
+.reservationArea .secondContent > fieldset .chkArea input[type="checkbox"]:checked + label{background-image: url('../images/icon-chk-checked.png');}
 .reservationArea .secondContent > fieldset .chkArea label span{text-decoration: underline; text-decoration-thickness: 3px;}
 .reservationArea .secondContent > fieldset .chkArea label:not(:last-child){margin-bottom: 20px;}
 .reservationArea .secondContent > fieldset > input[type="submit"]{display: block; margin: 0 auto;}
