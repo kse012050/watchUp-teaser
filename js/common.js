@@ -128,28 +128,47 @@ function fixedText(){
     let test = $('.fixedText mark').text().replace(/\S/g,"<span>$&</span>");
     $('.fixedText mark').html(test)
     $('.fixedText mark span').each(function(i){
+        // PC
+        // $(this).css('transform','rotate('+i * (360 / textLength)+'deg) translateY(60px)')
+        // 테블릿
         $(this).css('transform','rotate('+i * (360 / textLength)+'deg) translateY(60px)')
+        // 모바일
+        // $(this).css('transform','rotate('+i * (360 / textLength)+'deg) translateY(35px)')
     })
 }   // 화면 고정 텍스트
 
 
 // 쇼룸
 function showSlider(){
-    var showSwiper = new Swiper(".showSwiper .swiper", {
-        spaceBetween: 300,
-        pagination: {
-            el: ".swiper-pagination",
-            type: "fraction",
-        },
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        },
-    });
+    var showSwiper;
+
+    function swiperCreate(){
+        showSwiper = new Swiper(".showSwiper .swiper", {
+            // spaceBetween: $(window).width() * 0.1171875,
+            pagination: {
+                el: ".swiper-pagination",
+                type: "fraction",
+            },
+            navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+            },
+        });
+    }
+
+    swiperCreate();
+    $(window).resize(function(){
+        // swiperCreate();
+    })
 }  // 쇼룸 fin
 
 
 function reservationEvent(){
+    // 팝업을 나올 때 스크롤 이벤트 막기
+    $('[data-popupName="second"]').on('mousewheel DOMMouseScroll',function(e){
+        e.stopPropagation();
+    })
+
     // 팝업
     $('form button').click(function(e){
         e.preventDefault();
