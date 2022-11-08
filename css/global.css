@@ -43,10 +43,10 @@
     .teaserPage .fixedText mark span{position: absolute; left: 0; top: 0; transform-origin: left top;}
     @keyframes rotateAni {
         0%{
-            transform: rotate(360deg);
+            transform: rotate(0deg);
         }
         100%{
-            transform: rotate(0deg);
+            transform: rotate(360deg);
         }
     }
     
@@ -100,10 +100,10 @@
     .teaserPage .fixedText mark span{position: absolute; left: 0; top: 0; transform-origin: left top;}
     @keyframes rotateAni {
         0%{
-            transform: rotate(360deg);
+            transform: rotate(0deg);
         }
         100%{
-            transform: rotate(0deg);
+            transform: rotate(360deg);
         }
     }
     
@@ -152,15 +152,15 @@
     .teaserPage header .bottomArea button{padding-right: 15px; background: url('../images/icon-top.png') no-repeat right center / 10px;}
     
     /* 화면 고정 텍스트 */
-    .teaserPage .fixedText{position: fixed; right: 5px; top: calc(50% + 40px); width: 85px; height: 85px; z-index: 10; color: red; display: flex; justify-content: center; align-items: center; background: url('../images/icon-right.png') no-repeat center / 30px;}
+    .teaserPage .fixedText{position: fixed; right: 20px; top: calc(50% + 40px); width: 85px; height: 85px; z-index: 10; color: red; display: flex; justify-content: center; align-items: center; background: url('../images/icon-right.png') no-repeat center / 30px;}
     .teaserPage .fixedText mark{font-size: 14px; font-weight: 800; position: relative; animation: rotateAni 7.5s linear infinite;}
     .teaserPage .fixedText mark span{position: absolute; left: 0; top: 0; transform-origin: left top;}
     @keyframes rotateAni {
         0%{
-            transform: rotate(360deg);
+            transform: rotate(0deg);
         }
         100%{
-            transform: rotate(0deg);
+            transform: rotate(360deg);
         }
     }
     

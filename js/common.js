@@ -127,13 +127,33 @@ function fixedText(){
     let textLength = $('.fixedText mark').text().length;
     let test = $('.fixedText mark').text().replace(/\S/g,"<span>$&</span>");
     $('.fixedText mark').html(test)
-    $('.fixedText mark span').each(function(i){
-        // PC
-        // $(this).css('transform','rotate('+i * (360 / textLength)+'deg) translateY(60px)')
-        // 테블릿
-        $(this).css('transform','rotate('+i * (360 / textLength)+'deg) translateY(60px)')
-        // 모바일
-        // $(this).css('transform','rotate('+i * (360 / textLength)+'deg) translateY(35px)')
+
+    function fixedTextResponsive(){
+        $('.fixedText mark span').each(function(i){
+          /*   if($(window).width() > 1280){
+                // PC
+                $(this).css('transform','rotate('+i * (360 / textLength)+'deg) translateY(60px)')
+            }else  */if($(window).width() > 720){
+                // 테블릿
+                $(this).css('transform','rotate('+i * (360 / textLength)+'deg) translateY(60px)')
+                $(this).css('transform','rotate('+i * (360 / (textLength))+'deg) translateY(-80px)')
+            }else{
+                // 모바일
+                $(this).css('transform','rotate('+i * (360 / textLength)+'deg) translateY(35px)')
+                // $(this).css('transform','rotate('+i * (360 / textLength)+'deg) translateY(-55px)')
+            }
+        })
+    }
+
+    fixedTextResponsive();
+    $(window).resize(function(){
+        fixedTextResponsive();
+    })
+
+    $('.fixedText').click(function(){
+        fullIdx = ($('.fullPage > *').length - 1);
+        $('header .bottomArea mark').html('0'+ (fullIdx + 1))
+        $('.fullPage').stop().animate({top : -fullIdx * $(window).height()})
     })
 }   // 화면 고정 텍스트
 
