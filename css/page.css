@@ -74,7 +74,7 @@
     .reservationArea .firstContent small{font-size: 12px;}
     .secondContent{position: fixed; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.9); display: none; justify-content: center; align-items: center; z-index: 100; color: white;}
     .secondContent > fieldset{text-align: center;}
-    .secondContent > fieldset h3{font-size: 56px; font-weight: 700; margin-bottom: 60px;}
+    .secondContent > fieldset h3{font-size: 28px; font-weight: 700; margin-bottom: 30px;}
     .secondContent > fieldset input[type="text"]{width: 320px; height: 70px; font-size: 17px; font-weight: 700; color: white; text-align: center; background-color: transparent; border: none; border-bottom: 3px solid white; margin-bottom: 30px; outline: none;}
     .secondContent > fieldset input[type="text"]::placeholder{color: rgba(255, 255, 255, 0.3);}
     .secondContent > fieldset > ul{margin-bottom: 40px;}
@@ -87,7 +87,7 @@
     .secondContent > fieldset > ul li:nth-child(2) label::before{background-image: url('../images/icon-playsstore.png');}
     .secondContent > fieldset .chkArea{display: inline-flex; flex-direction: column; text-align: left; margin-bottom: 50px;}
     .secondContent > fieldset .chkArea input[type="checkbox"]{display: none;}
-    .secondContent > fieldset .chkArea label{font-size: 14px; color: rgba(255, 255, 255, 0.8); padding-left: 25px; background-image: url('../images/icon-chk.png'); background-repeat: no-repeat; background-position: left center; background-size: 15px;}
+    .secondContent > fieldset .chkArea label{font-size: 14px; color: rgba(255, 255, 255, 0.8); padding-left: 25px; background-image: url('../images/icon-chk.png'); background-repeat: no-repeat; background-position: left center; background-size: 13px;}
     .secondContent > fieldset .chkArea input[type="checkbox"]:checked + label{background-image: url('../images/icon-chk-checked.png');}
     .secondContent > fieldset .chkArea label span{text-decoration: underline; text-decoration-thickness: 1.5px;}
     .secondContent > fieldset .chkArea label:not(:last-child){margin-bottom: 15px;}
@@ -183,7 +183,7 @@
     .secondContent > fieldset > ul li:nth-child(2) label::before{background-image: url('../images/icon-playsstore.png');}
     .secondContent > fieldset .chkArea{display: inline-flex; flex-direction: column; text-align: left; margin-bottom: 60px;}
     .secondContent > fieldset .chkArea input[type="checkbox"]{display: none;}
-    .secondContent > fieldset .chkArea label{font-size: 18px; color: rgba(255, 255, 255, 0.8); padding-left: 35px; background-image: url('../images/icon-chk.png'); background-repeat: no-repeat; background-position: left center; background-size: 20px;}
+    .secondContent > fieldset .chkArea label{font-size: 18px; color: rgba(255, 255, 255, 0.8); padding-left: 35px; background-image: url('../images/icon-chk.png'); background-repeat: no-repeat; background-position: left center; background-size: 18px;}
     .secondContent > fieldset .chkArea input[type="checkbox"]:checked + label{background-image: url('../images/icon-chk-checked.png');}
     .secondContent > fieldset .chkArea label span{text-decoration: underline; text-decoration-thickness: 3px;}
     .secondContent > fieldset .chkArea label:not(:last-child){margin-bottom: 20px;}
@@ -278,7 +278,7 @@
     .secondContent > fieldset > ul li:nth-child(2) label::before{background-image: url('../images/icon-playsstore.png');}
     .secondContent > fieldset .chkArea{display: inline-flex; flex-direction: column; text-align: left; margin-bottom: 60px;}
     .secondContent > fieldset .chkArea input[type="checkbox"]{display: none;}
-    .secondContent > fieldset .chkArea label{font-size: 18px; color: rgba(255, 255, 255, 0.8); padding-left: 35px; background-image: url('../images/icon-chk.png'); background-repeat: no-repeat; background-position: left center; background-size: 20px;}
+    .secondContent > fieldset .chkArea label{font-size: 18px; color: rgba(255, 255, 255, 0.8); padding-left: 35px; background-image: url('../images/icon-chk.png'); background-repeat: no-repeat; background-position: left center; background-size: 18px;}
     .secondContent > fieldset .chkArea input[type="checkbox"]:checked + label{background-image: url('../images/icon-chk-checked.png');}
     .secondContent > fieldset .chkArea label span{text-decoration: underline; text-decoration-thickness: 3px;}
     .secondContent > fieldset .chkArea label:not(:last-child){margin-bottom: 20px;}

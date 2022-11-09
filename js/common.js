@@ -116,7 +116,7 @@ function fullPage(){
             if(fullSelector.length == fullIdx + 1){
                 $('.fixedText').fadeOut();
             }else{
-                $('.fixedText').fadeIn();
+                $('.fixedText').fadeIn().css('display' , 'flex');
             }
         }
     }   // 풀페이지 이벤트
@@ -126,6 +126,8 @@ function fullPage(){
         fullIdx = 0;
         $('header .bottomArea mark').html('0'+ (fullIdx + 1))
         $('.fullPage').stop().animate({top : 0})
+        $('.fixedText').fadeIn().css('display' , 'flex')
+        $('body').removeClass('overflowHidden');
     })
 
 }   // 풀페이지
@@ -160,17 +162,13 @@ function fixedText(){
 
     function fixedTextResponsive(){
         $('.fixedText mark span').each(function(i){
-          /*   if($(window).width() > 1280){
-                // PC
-                $(this).css('transform','rotate('+i * (360 / textLength)+'deg) translateY(60px)')
-            }else  */if($(window).width() > 720){
+            if($(window).width() > 720){
                 // 테블릿
                 $(this).css('transform','rotate('+i * (360 / textLength)+'deg) translateY(60px)')
                 $(this).css('transform','rotate('+i * (360 / (textLength))+'deg) translateY(-80px)')
             }else{
                 // 모바일
-                $(this).css('transform','rotate('+i * (360 / textLength)+'deg) translateY(35px)')
-                // $(this).css('transform','rotate('+i * (360 / textLength)+'deg) translateY(-55px)')
+                $(this).css('transform','rotate('+i * (360 / textLength)+'deg) translateY(-55px)')
             }
         })
     }
@@ -184,6 +182,8 @@ function fixedText(){
         fullIdx = ($('.fullPage > *').length - 1);
         $('header .bottomArea mark').html('0'+ (fullIdx + 1))
         $('.fullPage').stop().animate({top : -fullIdx * $(window).height()})
+        $('.fixedText').fadeOut();
+        $('body').addClass('overflowHidden');
     })
 }   // 화면 고정 텍스트
 
