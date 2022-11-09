@@ -25,7 +25,7 @@ $(document).ready(function(){
 function fullPage(){
     let delta;
     let fullIdx = 0;
-    let moveTop = 0;
+    let moveTop;
     let fullSelector = $('.fullPage > *');
     // 총 페이저 수
     $('header .bottomArea div span').html('0' + fullSelector.length)
@@ -100,16 +100,20 @@ function fullPage(){
                     $('body').removeClass('overflowHidden');
                 }
                 moveTop = -(target.prev().position().top)
+            }else{
+                moveTop = undefined;
             }
         }else{
             if(target.next().position()){
                 $('body').addClass('overflowHidden');
                 moveTop = -(target.next().position().top)
                 fullIdx = target.index() + 1;
+            }else{
+                moveTop = undefined;
             }
         }
-
-        if((target.prev().position()) || (target.next().position())){
+        
+        if(moveTop !== undefined){
             $('header .bottomArea mark').html('0'+ (fullIdx + 1))
             $('.fullPage').stop().animate({top : moveTop})
 
@@ -148,7 +152,10 @@ function homeAnimate(){
         $('.homeArea div.secondText p').addClass('step1')
     },4300)
     setTimeout(()=>{
-        $('.fixedText').fadeIn().css('display','flex');
+        console.log(parseInt($('.fullPage').css('top')));
+        if(parseInt($('.fullPage').css('top')) == 0){
+            $('.fixedText').fadeIn().css('display','flex');
+        }
     },5500)
 } //홈 애니메이션
 

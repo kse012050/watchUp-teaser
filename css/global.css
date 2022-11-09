@@ -136,7 +136,7 @@
     header .topArea{align-items: center;}
     header .topArea h1{width: 128px;}
     header .topArea h1 img{width: 100%;}
-    header .topArea ul{display: flex;}
+    header .topArea ul{/* display: flex; */ display: none;}
     header .topArea ul li{width: 25px;}
     header .topArea ul li:not(:last-child){margin-right: 20px;}
     header .topArea ul li a img{width: 100%;}
