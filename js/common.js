@@ -1,5 +1,10 @@
 $(document).ready(function(){
+    
+    // 풀페이지
     fullPage();
+
+    // 홈 애니메이션
+    homeAnimate()
 
     // 화면 고정 텍스트
     fixedText()
@@ -17,6 +22,7 @@ $(document).ready(function(){
         $(this).addClass('active')
     })
 });
+
 
 // 풀페이지
 function fullPage(){
@@ -120,6 +126,24 @@ function fullPage(){
     })
 
 }   // 풀페이지
+
+
+// 홈 애니메이션
+function homeAnimate(){
+    setTimeout(()=>{
+        $('.homeArea p.firstText').addClass('step1')
+    }, 500)
+    setTimeout(()=>{
+        $('.homeArea p.firstText').addClass('step2')
+    }, 1800)
+    $('.homeArea div.homeBG').delay(2700).animate({width : '100%' , height : '100%'} , 1300, 'linear')
+    $('.homeArea div.homeBG span').delay(2700).animate({left : '50%'} , 1300 , 'linear')
+    setTimeout(()=>{
+        $('.homeArea div.homeBG').addClass('active')
+        $('.homeArea div.secondText p').addClass('step1')
+    },4300)
+} //홈 애니메이션
+
 
 
 // 화면 고정 텍스트
