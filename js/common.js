@@ -137,7 +137,9 @@ function homeAnimate(){
         $('.homeArea p.firstText').addClass('step2')
     }, 1800)
     $('.homeArea div.homeBG').delay(2700).animate({width : '100%' , height : '100%'} , 1300, 'linear')
-    $('.homeArea div.homeBG span').delay(2700).animate({left : '50%'} , 1300 , 'linear')
+    if($(window).width() >= 1280){
+        $('.homeArea div.homeBG span').delay(2700).animate({left : '50%'} , 1300 , 'linear')
+    }
     setTimeout(()=>{
         $('.homeArea div.homeBG').addClass('active')
         $('.homeArea div.secondText p').addClass('step1')
