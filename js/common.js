@@ -9,18 +9,15 @@ $(document).ready(function(){
     // 화면 고정 텍스트
     fixedText()
 
+    // 멤버쉽
+    membership();
+
     // 쇼룸 슬라이더
     showSlider();
 
     // 예약 
     reservationEvent();
-
-    $('.membershipArea li').hover(function(){
-        $('.membershipArea li').removeClass('active');
-        $('.membershipArea li').children('p').stop().slideUp();
-        $(this).children('p').stop().slideDown();
-        $(this).addClass('active')
-    })
+    
 });
 
 
@@ -31,12 +28,11 @@ function fullPage(){
     let moveTop = 0;
     let fullSelector = $('.fullPage > *');
     // 총 페이저 수
-    $('.teaserPage header .bottomArea div span').html('0' + fullSelector.length)
+    $('header .bottomArea div span').html('0' + fullSelector.length)
 
-    // 
+    // 모바일인 경우
+    $('.fullPage').children().height($(window).height())
     if (/Mobi|Android/i.test(navigator.userAgent)) {
-        // 모바일인 경우
-        $('.fullPage').children().height($(window).height())
     }
 
     // 마우스 휠 이벤트
@@ -89,6 +85,7 @@ function fullPage(){
 
     // 브라우저 사이즈 쭐였을 때
     $(window).resize(function(){
+        $('.fullPage').children().height($(window).height())
         $('.fullPage').stop().css('top' ,$(window).height() * -fullIdx)
         moveTop = parseInt($('.fullPage').css('top'));
     }) // 브라우저 사이즈 쭐였을 때
@@ -115,6 +112,12 @@ function fullPage(){
         if((target.prev().position()) || (target.next().position())){
             $('header .bottomArea mark').html('0'+ (fullIdx + 1))
             $('.fullPage').stop().animate({top : moveTop})
+
+            if(fullSelector.length == fullIdx + 1){
+                $('.fixedText').fadeOut();
+            }else{
+                $('.fixedText').fadeIn();
+            }
         }
     }   // 풀페이지 이벤트
 
@@ -136,14 +139,15 @@ function homeAnimate(){
     setTimeout(()=>{
         $('.homeArea p.firstText').addClass('step2')
     }, 1800)
-    $('.homeArea div.homeBG').delay(2700).animate({width : '100%' , height : '100%'} , 1300, 'linear')
-    if($(window).width() >= 1280){
-        $('.homeArea div.homeBG span').delay(2700).animate({left : '50%'} , 1300 , 'linear')
-    }
     setTimeout(()=>{
         $('.homeArea div.homeBG').addClass('active')
+    },2700)
+    setTimeout(()=>{
         $('.homeArea div.secondText p').addClass('step1')
     },4300)
+    setTimeout(()=>{
+        $('.fixedText').fadeIn().css('display','flex');
+    },5500)
 } //홈 애니메이션
 
 
@@ -206,12 +210,34 @@ function showSlider(){
     $(window).resize(function(){
         // swiperCreate();
     })
-}  // 쇼룸 fin
+}  // 쇼룸 
 
 
+// 멤버쉽
+function membership(){
+    $('.membershipArea li').hover(function(){
+        $('.membershipArea li').removeClass('active');
+        $('.membershipArea li').children('p').stop().slideUp();
+        $(this).children('p').stop().slideDown();
+        $(this).addClass('active')
+    })
+    $('.membershipArea li').on('touchend',function(e){
+        e.stopPropagation();
+    })
+}   // 멤버쉽
+
+
+// 예약
 function reservationEvent(){
     // 팝업을 나올 때 스크롤 이벤트 막기
     $('[data-popupName="second"]').on('mousewheel DOMMouseScroll',function(e){
+        e.stopPropagation();
+    })
+    $('[data-popupName="second"]').on('touchend',function(e){
+        e.stopPropagation();
+    })
+
+    $('[data-open="second"]').on('touchend',function(e){
         e.stopPropagation();
     })
 
@@ -242,10 +268,10 @@ function reservationEvent(){
 
     function phoneBlur(){
         $('[data-popupName="alert-phone"]').fadeIn();
-            // 경고창 띄우기
-            $('#phone').val('');
-            // 입력값 초기화
-            $('#phone').blur();
+        // 경고창 띄우기
+        $('#phone').val('');
+        // 입력값 초기화
+        $('#phone').blur();
     }
 
     // 모두 동의
@@ -264,4 +290,4 @@ function reservationEvent(){
         }
 
     })
-}
+}   // 예약

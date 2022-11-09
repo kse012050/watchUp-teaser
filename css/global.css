@@ -11,35 +11,33 @@
     /* 팝업 공통 */
     [class ^='popup']{display: none; flex-direction: column; position: fixed; left: 50%; top: 50%; transform: translate(-50% , -50%); width: 320px; padding: 0 20px; background-color: black; box-sizing: border-box; border: 1px solid #ff0000;}
     [class ^='popup'] button{width: 100%; height: 60px; font-size: 18px; font-weight: 700; border-top: 1px solid rgba(255, 255, 255, 0.14);}
-    [data-popupName^="alert"] p{font-size: 16px; text-align: center; line-height: 62px; padding: 32px 0 35px;}
+    [data-popupName^="alert"] p{font-size: 16px; text-align: center; padding: 32px 0 35px;}
     [data-popupName^="agree"] div{padding: 20px 0;}
     [data-popupName^="agree"] div strong{display: block; font-size: 18px; font-weight: 700; margin-bottom: 20px;}
     [data-popupName^="agree"] div > *:not(strong){font-size: 16px; color: rgba(255, 255, 255, 0.8); line-height: 24px;}
     [data-popupName^="agree"] div ul li::before{content: '-';}
     
-    .teaserPage{height: 100vh; overflow: hidden;}
-    
     /* 해더 */
-    .teaserPage header{position: fixed; inset: 20px; z-index: 10; display: flex; flex-direction: column; justify-content: space-between; pointer-events: none;}
-    .teaserPage header > div{display: flex; justify-content: space-between;}
-    .teaserPage header :is(.topArea , .bottomArea) > *{pointer-events: all;}
-    .teaserPage header .topArea{align-items: center;}
-    .teaserPage header .topArea h1{width: 96px;}
-    .teaserPage header .topArea h1 img{width: 100%;}
-    .teaserPage header .topArea ul{display: none;}
-    .teaserPage header .topArea ul li{width: 25px;}
-    .teaserPage header .topArea ul li:not(:last-child){margin-right: 20px;}
-    .teaserPage header .topArea ul li a img{width: 100%;}
-    .teaserPage header .bottomArea{align-items: flex-end; font-size: 13px; font-weight: 700; color: white; }
-    .teaserPage header .bottomArea div{background: url('../images/icon-star.png') no-repeat center / 12px;}
-    .teaserPage header .bottomArea div > *{display: block;}
-    .teaserPage header .bottomArea div > *:not(:last-child){margin-bottom: 38px;}
-    .teaserPage header .bottomArea button{padding-right: 15px; background: url('../images/icon-top.png') no-repeat right center / 10px;}
+    header{position: fixed; inset: 20px; z-index: 10; display: flex; flex-direction: column; justify-content: space-between; pointer-events: none;}
+    header > div{display: flex; justify-content: space-between;}
+    header :is(.topArea , .bottomArea) > *{pointer-events: all;}
+    header .topArea{align-items: center;}
+    header .topArea h1{width: 96px;}
+    header .topArea h1 img{width: 100%;}
+    header .topArea ul{display: none;}
+    header .topArea ul li{width: 25px;}
+    header .topArea ul li:not(:last-child){margin-right: 20px;}
+    header .topArea ul li a img{width: 100%;}
+    header .bottomArea{align-items: flex-end; font-size: 13px; font-weight: 700; color: white; }
+    header .bottomArea div{background: url('../images/icon-star.png') no-repeat center / 12px;}
+    header .bottomArea div > *{display: block;}
+    header .bottomArea div > *:not(:last-child){margin-bottom: 38px;}
+    header .bottomArea button{padding-right: 15px; background: url('../images/icon-top.png') no-repeat right center / 10px;}
     
     /* 화면 고정 텍스트 */
-    .teaserPage .fixedText{position: fixed; right: 20px; top: calc(50% + 40px); width: 85px; height: 85px; z-index: 10; color: red; display: flex; justify-content: center; align-items: center; background: url('../images/icon-right.png') no-repeat center / 30px;}
-    .teaserPage .fixedText mark{font-size: 14px; font-weight: 800; position: relative; animation: rotateAni 7.5s linear infinite;}
-    .teaserPage .fixedText mark span{position: absolute; left: 0; top: 0; transform-origin: left top;}
+    .fixedText{position: fixed; right: 20px; top: calc(50% + 40px); width: 85px; height: 85px; z-index: 10; color: red; display: none; justify-content: center; align-items: center; background: url('../images/icon-right.png') no-repeat center / 30px;}
+    .fixedText mark{font-size: 14px; font-weight: 800; position: relative; animation: rotateAni 7.5s linear infinite;}
+    .fixedText mark span{position: absolute; left: 0; top: 0; transform-origin: left top;}
     @keyframes rotateAni {
         0%{
             transform: rotate(0deg);
@@ -50,8 +48,8 @@
     }
     
     /* fullPage 공통 */
-    .teaserPage .fullPage{position: relative; left: 0; top: 0; width: 100%;  background-color: black; color: white; text-align: center; font-weight: 700;}
-    .teaserPage .fullPage > *{width: 100%; height: 100vh; display: flex; justify-content: center; align-items: center; flex-direction: column;}
+    .fullPage{position: fixed; left: 0; top: 0; width: 100%;  background-color: black; color: white; text-align: center; font-weight: 700;}
+    .fullPage > *{width: 100%; height: 100vh; display: flex; justify-content: center; align-items: center; flex-direction: column;}
 }
 
 /* 테블릿 */
@@ -73,29 +71,27 @@
     [data-popupName^="agree"] div > *:not(strong){font-size: 16px; color: rgba(255, 255, 255, 0.8); line-height: 24px;}
     [data-popupName^="agree"] div ul li::before{content: '-';}
     
-    .teaserPage{height: 100vh; overflow: hidden;}
-    
     /* 해더 */
-    .teaserPage header{position: fixed; inset: 40px; z-index: 10; display: flex; flex-direction: column; justify-content: space-between; pointer-events: none;}
-    .teaserPage header > div{display: flex; justify-content: space-between;}
-    .teaserPage header :is(.topArea , .bottomArea) > *{pointer-events: all;}
-    .teaserPage header .topArea{align-items: center;}
-    .teaserPage header .topArea h1{width: 192px;}
-    .teaserPage header .topArea h1 img{width: 100%;}
-    .teaserPage header .topArea ul{display: none;}
-    .teaserPage header .topArea ul li{width: 25px;}
-    .teaserPage header .topArea ul li:not(:last-child){margin-right: 20px;}
-    .teaserPage header .topArea ul li a img{width: 100%;}
-    .teaserPage header .bottomArea{align-items: flex-end; font-size: 24px; font-weight: 700; color: white; }
-    .teaserPage header .bottomArea div{background: url('../images/icon-star.png') no-repeat center / 16px;}
-    .teaserPage header .bottomArea div > *{display: block;}
-    .teaserPage header .bottomArea div > *:not(:last-child){margin-bottom: 75px;}
-    .teaserPage header .bottomArea button{padding-right: 30px; background: url('../images/icon-top.png') no-repeat right center / 20px;}
+    header{position: fixed; inset: 40px; z-index: 10; display: flex; flex-direction: column; justify-content: space-between; pointer-events: none;}
+    header > div{display: flex; justify-content: space-between;}
+    header :is(.topArea , .bottomArea) > *{pointer-events: all;}
+    header .topArea{align-items: center;}
+    header .topArea h1{width: 192px;}
+    header .topArea h1 img{width: 100%;}
+    header .topArea ul{display: none;}
+    header .topArea ul li{width: 25px;}
+    header .topArea ul li:not(:last-child){margin-right: 20px;}
+    header .topArea ul li a img{width: 100%;}
+    header .bottomArea{align-items: flex-end; font-size: 24px; font-weight: 700; color: white; }
+    header .bottomArea div{background: url('../images/icon-star.png') no-repeat center / 16px;}
+    header .bottomArea div > *{display: block;}
+    header .bottomArea div > *:not(:last-child){margin-bottom: 75px;}
+    header .bottomArea button{padding-right: 30px; background: url('../images/icon-top.png') no-repeat right center / 20px;}
     
     /* 화면 고정 텍스트 */
-    .teaserPage .fixedText{position: fixed; right: 25px; top: calc(50% + 40px); width: 170px; height: 170px; z-index: 10; color: red; display: flex; justify-content: center; align-items: center; background: url('../images/icon-right.png') no-repeat center / 60px;}
-    .teaserPage .fixedText mark{font-size: 27px; font-weight: 800; position: relative; animation: rotateAni 7.5s linear infinite;}
-    .teaserPage .fixedText mark span{position: absolute; left: 0; top: 0; transform-origin: left top;}
+    .fixedText{position: fixed; right: 25px; top: calc(50% + 40px); width: 170px; height: 170px; z-index: 10; color: red; display: none; justify-content: center; align-items: center; background: url('../images/icon-right.png') no-repeat center / 60px;}
+    .fixedText mark{font-size: 27px; font-weight: 800; position: relative; animation: rotateAni 7.5s linear infinite;}
+    .fixedText mark span{position: absolute; left: 0; top: 0; transform-origin: left top;}
     @keyframes rotateAni {
         0%{
             transform: rotate(0deg);
@@ -106,8 +102,8 @@
     }
     
     /* fullPage 공통 */
-    .teaserPage .fullPage{position: relative; left: 0; top: 0; width: 100%;  background-color: black; color: white; text-align: center; font-weight: 700;}
-    .teaserPage .fullPage > *{width: 100%; height: 100vh; display: flex; justify-content: center; align-items: center; flex-direction: column;}
+    .fullPage{position: fixed; left: 0; top: 0; width: 100%;  background-color: black; color: white; text-align: center; font-weight: 700;}
+    .fullPage > *{width: 100%; height: 100vh; display: flex; justify-content: center; align-items: center; flex-direction: column;}
 }
 
 /* PC */
@@ -129,29 +125,27 @@
     [data-popupName^="agree"] div > *:not(strong){font-size: 16px; color: rgba(255, 255, 255, 0.8); line-height: 24px;}
     [data-popupName^="agree"] div ul li::before{content: '-';}
     
-    .teaserPage{height: 100vh; overflow: hidden;}
-    
     /* 해더 */
-    .teaserPage header{position: fixed; inset: 30px 40px 40px; z-index: 10; display: flex; flex-direction: column; justify-content: space-between; pointer-events: none;}
-    .teaserPage header > div{display: flex; justify-content: space-between;}
-    .teaserPage header :is(.topArea , .bottomArea) > *{pointer-events: all;}
-    .teaserPage header .topArea{align-items: center;}
-    .teaserPage header .topArea h1{width: 128px;}
-    .teaserPage header .topArea h1 img{width: 100%;}
-    .teaserPage header .topArea ul{display: flex;}
-    .teaserPage header .topArea ul li{width: 25px;}
-    .teaserPage header .topArea ul li:not(:last-child){margin-right: 20px;}
-    .teaserPage header .topArea ul li a img{width: 100%;}
-    .teaserPage header .bottomArea{align-items: flex-end; font-size: 18px; font-weight: 700; color: white; }
-    .teaserPage header .bottomArea div{background: url('../images/icon-star.png') no-repeat center / 11.5px;}
-    .teaserPage header .bottomArea div > *{display: block;}
-    .teaserPage header .bottomArea div > *:not(:last-child){margin-bottom: 50px;}
-    .teaserPage header .bottomArea button{padding-right: 20px; background: url('../images/icon-top.png') no-repeat right center;}
+    header{position: fixed; inset: 30px 40px 40px; z-index: 10; display: flex; flex-direction: column; justify-content: space-between; pointer-events: none;}
+    header > div{display: flex; justify-content: space-between;}
+    header :is(.topArea , .bottomArea) > *{pointer-events: all;}
+    header .topArea{align-items: center;}
+    header .topArea h1{width: 128px;}
+    header .topArea h1 img{width: 100%;}
+    header .topArea ul{display: flex;}
+    header .topArea ul li{width: 25px;}
+    header .topArea ul li:not(:last-child){margin-right: 20px;}
+    header .topArea ul li a img{width: 100%;}
+    header .bottomArea{align-items: flex-end; font-size: 18px; font-weight: 700; color: white; }
+    header .bottomArea div{background: url('../images/icon-star.png') no-repeat center / 11.5px;}
+    header .bottomArea div > *{display: block;}
+    header .bottomArea div > *:not(:last-child){margin-bottom: 50px;}
+    header .bottomArea button{padding-right: 20px; background: url('../images/icon-top.png') no-repeat right center;}
     
     /* 화면 고정 텍스트 */
-    .teaserPage .fixedText{position: fixed; left: calc(50% + 200px); top: calc(50% + 40px); width: 160px; height: 160px; z-index: 10; color: red; display: flex; justify-content: center; align-items: center; background: url('../images/icon-right.png') no-repeat center;}
-    .teaserPage .fixedText mark{font-size: 26px; font-weight: 800; position: relative; animation: rotateAni 7.5s linear infinite;}
-    .teaserPage .fixedText mark span{position: absolute; left: 0; top: 0; transform-origin: left top;}
+    .fixedText{position: fixed; left: calc(50% + 200px); top: calc(50% + 40px); width: 160px; height: 160px; z-index: 10; color: red; display: none; justify-content: center; align-items: center; background: url('../images/icon-right.png') no-repeat center;}
+    .fixedText mark{font-size: 26px; font-weight: 800; position: relative; animation: rotateAni 7.5s linear infinite;}
+    .fixedText mark span{position: absolute; left: 0; top: 0; transform-origin: left top;}
     @keyframes rotateAni {
         0%{
             transform: rotate(0deg);
@@ -162,8 +156,8 @@
     }
     
     /* fullPage 공통 */
-    .teaserPage .fullPage{position: relative; left: 0; top: 0; width: 100%;  background-color: black; color: white; text-align: center; font-weight: 700;}
-    .teaserPage .fullPage > *{width: 100%; height: 100vh; display: flex; justify-content: center; align-items: center; flex-direction: column;}
+    .fullPage{position: fixed; left: 0; top: 0; width: 100%;  background-color: black; color: white; text-align: center; font-weight: 700;}
+    .fullPage > *{width: 100%; height: 100vh; display: flex; justify-content: center; align-items: center; flex-direction: column;}
 }
 
 
