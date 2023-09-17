@@ -31,7 +31,7 @@ function fullPage(){
     $('header .bottomArea div span').html('0' + fullSelector.length)
 
     // 모바일인 경우
-    $('.fullPage').children().height($(window).height())
+    $('.fullPage').children().not('footer').height($(window).height())
     if (/Mobi|Android/i.test(navigator.userAgent)) {
     }
 
@@ -85,7 +85,8 @@ function fullPage(){
 
     // 브라우저 사이즈 쭐였을 때
     $(window).resize(function(){
-        $('.fullPage').children().height($(window).height())
+        $('.fullPage').children().not('footer').height($(window).height())
+        fullIdx === 6 && (fullIdx = 5)
         $('.fullPage').stop().css('top' ,$(window).height() * -fullIdx)
         moveTop = parseInt($('.fullPage').css('top'));
     }) // 브라우저 사이즈 쭐였을 때
@@ -106,7 +107,7 @@ function fullPage(){
         }else{
             if(target.next().position()){
                 $('body').addClass('overflowHidden');
-                moveTop = -(target.next().position().top)
+                moveTop = -(target.next().position().top + (target.next().height() - $(window).height()))
                 fullIdx = target.index() + 1;
             }else{
                 moveTop = undefined;
@@ -152,7 +153,6 @@ function homeAnimate(){
         $('.homeArea div.secondText p').addClass('step1')
     },4300)
     setTimeout(()=>{
-        console.log(parseInt($('.fullPage').css('top')));
         if(parseInt($('.fullPage').css('top')) == 0){
             $('.fixedText').fadeIn().css('display','flex');
         }
